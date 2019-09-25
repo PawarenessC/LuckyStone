@@ -42,7 +42,7 @@ class Main extends pluginBase implements Listener{
 		$y = $block->y;
 		$z = $block->z;
 		$pos = new Vector3($x, $y, $z);
-		if($block == 1){
+		if($id == 1){
 			if(mt_rand(1,1000) == 1){
 				$item = Item::get(265, 0, mt_rand(1,10)); //鉄
 				$level->dropItem($pos, $item);
