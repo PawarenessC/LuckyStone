@@ -10,6 +10,8 @@ use pocketmine\Server;
 use pocketmine\Player;
 use pocketmine\item\Item;
 
+use pocketmine\math\Vector3;
+
 class Main extends pluginBase implements Listener{
 	
 	public function onEnable(){
