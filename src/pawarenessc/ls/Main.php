@@ -3,7 +3,7 @@
 namespace pawarenessc\ls;
 
 use pocketmine\plugin\PluginBase;
-use pocketmine\event\Listener
+use pocketmine\event\Listener;
 use pocketmine\event\block\BlockBreakEvent;
 
 use pocketmine\Server;
