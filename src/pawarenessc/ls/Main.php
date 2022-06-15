@@ -44,23 +44,17 @@ class Main extends pluginBase implements Listener{
  		$this->getLogger()->info("バージョン:{$this->getDescription()->getVersion()}");
  		$this->getLogger()->info("=========================");
 	}
-	
-	/**
- 	* @ignoreCancelled
- 	*/
-	public function onBreak(BlockBreakEvent $event){
-		$player = $event->getPlayer();
+
+	public function onBreak(BlockBreakEvent $event): void{
+		if($event->isCancelled()) return;
+        $player = $event->getPlayer();
 		$block = $event->getBlock();
 		$id = $block->getId();
-        //$x = $block->x;
-		//$y = $block->y;
-	    //$z = $block->z;
         $x = $block->getPosition()->getX();
         $y = $block->getPosition()->getY();
         $z = $block->getPosition()->getZ();
 		$pos = new Vector3($x, $y, $z);
 		$level = $player->getWorld();
-        //$level = $player->getLevel();
 		if($id == 1){
 			$config = $this->config->getAll();
 			$iron_rand_max =         $config["iron_rand_max"];
