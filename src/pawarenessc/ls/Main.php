@@ -23,6 +23,14 @@ class Main extends pluginBase implements Listener{
  		$this->getLogger()->info("バージョン:{$this->getDescription()->getVersion()}");
  		$this->getLogger()->info("=========================");
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
+		
+		$this->config = new Config($this->getDataFolder()."Setup.yml", Config::YAML,
+			[
+			"iron_rand_max" => 100,
+			"number_of_iron_max" => 10,
+			"diamond_rand_max" => 1000,
+			"number_of_diamond_max" => 10,
+			]);
 	}
 	
 	public function onDisable(){
