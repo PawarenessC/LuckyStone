@@ -12,7 +12,13 @@ use pocketmine\item\Item;
 
 use pocketmine\math\Vector3;
 
+use pocketmine\utils\Config;
+use pocketmine\utils\TextFormat;
+
 class Main extends pluginBase implements Listener{
+	
+	/* @var Config */
+	public $config;
 	
 	public function onEnable(){
 		$this->getLogger()->info("=========================");
@@ -25,12 +31,12 @@ class Main extends pluginBase implements Listener{
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		
 		$this->config = new Config($this->getDataFolder()."Setup.yml", Config::YAML,
-			[
-			"iron_rand_max" => 100,
-			"number_of_iron_max" => 10,
-			"diamond_rand_max" => 1000,
-			"number_of_diamond_max" => 10,
-			]);
+				[
+					"iron_rand_max" => 100,
+					"number_of_iron_max" => 10,
+					"diamond_rand_max" => 1000,
+					"number_of_diamond_max" => 10,
+				]);
 	}
 	
 	public function onDisable(){
@@ -54,13 +60,19 @@ class Main extends pluginBase implements Listener{
 		$pos = new Vector3($x, $y, $z);
 		$level = $player->getLevel();
 		if($id == 1){
-			if(mt_rand(1,1000) == 1){
-				$item = Item::get(265, 0, mt_rand(1,10)); //鉄
+			$config = $this->config->getAll();
+			$iron_rand_max =         $config["iron_rand_max"];
+			$diamond_rand_max =      $config["diamond_rand_max"];
+			$number_of_iron_max =    $config["number_of_iron_max"];
+			$number_of_diamond_max = $config["number_of_diamond_max"];
+			
+			if(mt_rand(1,$iron_rand_max) == 1){
+				$item = Item::get(265, 0, mt_rand(1, $number_of_iron_max)); //鉄
 				$level->dropItem($pos, $item);
 			}
 			
-			if(mt_rand(1,10000) == 1){
-				$item = Item::get(264, 0, mt_rand(1,10)); //ダイヤ
+			if(mt_rand(1, $diamond_rand_max) == 1){
+				$item = Item::get(264, 0, mt_rand(1, $number_of_diamond_max)); //ダイヤ
 				$level->dropItem($pos, $item);
 			}
 		}
