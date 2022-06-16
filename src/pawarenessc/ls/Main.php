@@ -29,12 +29,12 @@ class Main extends pluginBase implements Listener{
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		
 		$this->config = new Config($this->getDataFolder()."Setup.yml", Config::YAML,
-            [
-                "iron_rand_max" => 100,
-                "number_of_iron_max" => 10,
-                "diamond_rand_max" => 1000,
-                "number_of_diamond_max" => 10,
-            ]);
+            	[
+                	"iron_rand_max" => 100,
+                	"number_of_iron_max" => 10,
+                	"diamond_rand_max" => 1000,
+                	"number_of_diamond_max" => 10,
+            	]);
 	}
 	
 	public function onDisable(): void{
@@ -47,12 +47,12 @@ class Main extends pluginBase implements Listener{
 
 	public function onBreak(BlockBreakEvent $event): void{
 		if($event->isCancelled()) return;
-        $player = $event->getPlayer();
+        	$player = $event->getPlayer();
 		$block = $event->getBlock();
 		$id = $block->getId();
-        $x = $block->getPosition()->getX();
-        $y = $block->getPosition()->getY();
-        $z = $block->getPosition()->getZ();
+        	$x = $block->getPosition()->getX();
+        	$y = $block->getPosition()->getY();
+        	$z = $block->getPosition()->getZ();
 		$pos = new Vector3($x, $y, $z);
 		$level = $player->getWorld();
 		if($id == 1){
@@ -63,7 +63,7 @@ class Main extends pluginBase implements Listener{
 			$number_of_diamond_max = $config["number_of_diamond_max"];
 			
 			if(mt_rand(1,$iron_rand_max) == 1){
-                $item = ItemFactory::getInstance()->get(265, 0, mt_rand(1, $number_of_iron_max));
+                		$item = ItemFactory::getInstance()->get(265, 0, mt_rand(1, $number_of_iron_max));
 				$level->dropItem($pos, $item);
 			}
 			
