@@ -39,30 +39,30 @@ class PlayerEventListener implements Listener
             {
                 if($is_double_drop)
                 {
-                    $player->sendMessage("ダブル");
+                    //$player->sendMessage("ダブル");
                     $main->sendMessage($player,"drop.both");
                     $main->drop(VanillaItems::IRON_INGOT(),$pos,$level);
                     $main->drop(VanillaItems::DIAMOND(),$pos,$level);
                 }else{
                     if($is_priority_diamond)
                     {
-                        $player->sendMessage("ダイア優先");
+                        //$player->sendMessage("ダイア優先");
                         $main->sendMessage($player,"drop.diamond");
                         $main->drop(VanillaItems::DIAMOND(),$pos,$level);
                     }else{
-                        $player->sendMessage("鉄優先");
+                        //$player->sendMessage("鉄優先");
                         $main->sendMessage($player,"drop.iron");
                         $main->drop(VanillaItems::IRON_INGOT(), $pos,$level);
                     }
                 }
             }else{
                 if ($iron_rand === 1){
-                    $player->sendMessage("通常鉄");
+                    //$player->sendMessage("通常鉄");
                     $main->sendMessage($player,"drop.iron");
                     $main->drop(VanillaItems::IRON_INGOT(), $pos,$level);
                 }
                 if ($diamond_rand === 1){
-                    $player->sendMessage("津城ダイア");
+                    //$player->sendMessage("津城ダイア");
                     $main->sendMessage($player,"drop.diamond");
                     $main->drop(VanillaItems::DIAMOND(), $pos,$level);
                 }
