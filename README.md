@@ -28,4 +28,5 @@ drop.both | 鉄とダイア両方ドロップしたときのメッセージ
       
 ### 連絡先
 Discord .hAnyu
+
 X(旧Twitter) @12345_awa
