@@ -32,10 +32,10 @@ class Main extends pluginBase implements Listener
         $this->getServer()->getPluginManager()->registerEvents(new PlayerEventListener($this), $this);
         $this->setup = new Config($this->getDataFolder() . "Setup.yml", Config::YAML,
         [
-            "iron_rand_max" => 100,
+            "iron_rand_max" => 10,
             "number_of_iron_max" => 10,
-            "diamond_rand_max" => 100,
-            "number_of_diamond_max" => 100,
+            "diamond_rand_max" => 10,
+            "number_of_diamond_max" => 10,
             "double_drop" => true,
             "Priority_given_to_diamonds" => true,
         ]);
